@@ -8,3 +8,12 @@ export interface ICell {
 export interface ICounter {
   count: number
 }
+
+export interface IMessage {
+  innerText: string;
+}
+
+export interface IButton {
+  innerText: string
+  onClick: ()=> void;
+}
