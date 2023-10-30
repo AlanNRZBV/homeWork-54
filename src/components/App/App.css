@@ -23,3 +23,7 @@
   flex-wrap: wrap;
   max-width: 270px;
 }
+
+.cellCheck {
+  background-color: red;
+}
