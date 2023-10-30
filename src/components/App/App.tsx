@@ -23,29 +23,35 @@ const App = () => {
 
   const [cells, setCells] = useState<ICell[]>(startGame());
   const [counter, setCounter] = useState<ICounter>({ count: 0 });
-  const [msgText, setMsgText] = useState<IMessage>({innerText:''});
+  const [msgText, setMsgText] = useState<IMessage>({ innerText: '' });
+  const [gameFrozen, setGameFrozen] = useState<boolean>(false);
 
-  const switchGameState=()=>{
+  const switchGameState = () => {
     setCells(startGame);
     setCounter({ count: 0 });
-    setMsgText({innerText:''})
-  }
+    setMsgText({ innerText: '' });
+    setGameFrozen(false);
+  };
 
   const clickHandle = (key: number) => {
-    console.log('TEST', key);
+    if (gameFrozen) {
+      return;
+    }
     const cellsCopy = [...cells];
     const singleCell = cellsCopy[key];
     const cellCopy = { ...singleCell };
-    if (singleCell.hasItem){
-      const msgTextCopy = {...msgText}
-      msgTextCopy.innerText = 'FOUND! Press "Reset" button to continue'
+
+    if (singleCell.hasItem) {
+      const msgTextCopy = { ...msgText };
+      msgTextCopy.innerText = 'FOUND! Press "Reset" button to continue';
       setMsgText(msgTextCopy);
+      setGameFrozen(true);
     }
+
     cellCopy.clicked = true;
     cellsCopy[key] = cellCopy;
     setCells(cellsCopy);
     setCounter((prevCounter) => ({ count: prevCounter.count + 1 }));
-
   };
 
   return (
@@ -57,7 +63,7 @@ const App = () => {
         ))}
       </div>
       <Counter count={counter.count} />
-      <Button innerText="Reset" onClick={switchGameState}/>
+      <Button innerText="Reset" onClick={switchGameState} />
     </div>
   );
 };

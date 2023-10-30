@@ -4,26 +4,10 @@
   padding: 2rem;
   text-align: center;
 }
-
-.cell {
-  width: 35px;
-  height: 35px;
-  background-color: #565656;
-  margin: 5px;
-}
-
-.cellClicked {
-  background-color: transparent;
-}
-
 .gameContainer {
   border: 1px solid black;
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
   max-width: 270px;
-}
-
-.cellCheck {
-  background-color: red;
 }

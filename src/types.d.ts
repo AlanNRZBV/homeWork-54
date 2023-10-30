@@ -6,7 +6,7 @@ export interface ICell {
   onCellClick: React.MouseEventHandler;
 }
 export interface ICounter {
-  count: number
+  count: number;
 }
 
 export interface IMessage {
@@ -14,6 +14,6 @@ export interface IMessage {
 }
 
 export interface IButton {
-  innerText: string
-  onClick: ()=> void;
+  innerText: string;
+  onClick: () => void;
 }

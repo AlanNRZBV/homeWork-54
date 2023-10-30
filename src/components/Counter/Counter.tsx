@@ -1,10 +1,14 @@
-import {FC } from 'react';
+import { FC } from 'react';
 import { ICounter } from '../../types';
 
-const Counter: FC<ICounter> = ({count}) => {
-  return (
-    <span>{count}</span>
-  );
+const Counter: FC<ICounter> = ({ count }) => {
+  const counterStyle = {
+    display: 'block',
+    marginTop: '8px',
+    marginBottom: '8px',
+  };
+
+  return <span style={counterStyle}>{count}</span>;
 };
 
 export default Counter;
