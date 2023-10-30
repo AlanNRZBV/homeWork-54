@@ -6,12 +6,8 @@ const Cell: FC<ICell> = ({ hasItem, clicked, onCellClick }) => {
     width: '35px',
     height: '35px',
     backgroundColor: '#565656',
-    margin: '5px',
+    margin: '5px'
   };
-
-  if (hasItem) {
-    cellStyle.backgroundColor = 'red'; // DONT FORGET TO DELETE
-  }
 
   if (clicked) {
     cellStyle.backgroundColor = 'transparent';
